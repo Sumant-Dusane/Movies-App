@@ -51,7 +51,6 @@ $border-radius-medium: 16px;
 
 
 // z-index
-
 $z-index-negative: -10;
 $z-index-none: 0;
 $z-index-xxs: 10;
@@ -61,3 +60,8 @@ $z-index-m: 1000;
 $z-index-l: 10000;
 $z-index-xl: 1000000;
 $z-index-super: 99999999;
+
+// transitions
+$transition-in-out: 300ms all ease-in-out;
+$transition-in: 300ms all ease-in;
+$transition-out: 300ms all ease-out;

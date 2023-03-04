@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GlobalsService } from 'src/app/services/globals.service';
 import { faSignal, faSearch } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
@@ -9,4 +10,6 @@ import { faSignal, faSearch } from "@fortawesome/free-solid-svg-icons";
 export class NavbarComponent {
   logoIcon = faSignal;
   searchIcon = faSearch;
+
+  constructor(public globalservice: GlobalsService) {}
 }

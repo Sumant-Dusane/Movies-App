@@ -7,7 +7,7 @@
   width: 20%;
   padding-top: 80px;
   background-color: darken($color: $dark, $amount: 5);
-  z-index: $z-index-negative;
+  z-index: $z-index-l;
 
   &__content {
     @include reset-lists;
@@ -20,13 +20,14 @@
         position: relative;
         color: $pink;
         background-color: $dark;
+        transition: $transition-out;
 
-        &::before {
-          @include sudo-fill(absolute, unset, $gutter, 30%, unset);
-          font-size: $font-size-m;
-          color: $lightGrayVariant;
-          content: '\0279E';
-        }
+        // &::before {
+        //   @include sudo-fill(absolute, unset, $gutter, 30%, unset);
+        //   font-size: $font-size-m;
+        //   color: $lightGrayVariant;
+        //   // content: '\0279E';
+        // }
       }
     }
   }
