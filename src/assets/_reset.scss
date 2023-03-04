@@ -17,6 +17,7 @@ html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%; // Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.
   -webkit-tap-highlight-color: transparent; //  Change the default tap highlight to be completely transparent in iOS.
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 body {

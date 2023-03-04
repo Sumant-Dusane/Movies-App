@@ -4,7 +4,9 @@
 
 
 .navbar {
+  @include sudo-fill(fixed, 0, 0, unset, 0);
   @include grid-layout(unset, 1fr 3.5fr .5fr);
+  z-index: $z-index-xl;
   align-items: center;
   justify-content: center;
   background-color: $pink;
@@ -46,5 +48,6 @@
     width: 60px;
     height: auto;
     border-radius: 50%;
+    box-shadow: 0px 0 20px #00000078;
   }
 }
