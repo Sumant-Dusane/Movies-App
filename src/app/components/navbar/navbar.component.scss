@@ -1,0 +1,50 @@
+@import "./../../../assets/variables";
+@import "./../../../assets/sudo";
+@import "./../../../assets/grid";
+
+
+.navbar {
+  @include grid-layout(unset, 1fr 3.5fr .5fr);
+  align-items: center;
+  justify-content: center;
+  background-color: $pink;
+  min-height: 80px;
+}
+
+
+.logo {
+  cursor: pointer;
+  background-color: #d30c0c4a;
+  gap: $gutter;
+  font-size: $font-size-sm;
+  height: 100%;
+  img {
+    max-height: 100px;
+    width: auto;
+  }
+}
+
+
+.search-bar{
+  padding: $gutter $gutter1_2;
+  border-radius: $border-radius-normal;
+  font-size: $font-size-base;
+  margin: 0 $gutter;
+  gap: $gutter1_2;
+  &--input {
+    font-weight: $font-weight200;
+    width: 100%;
+  }
+}
+
+
+.credits {
+  position: relative;
+  width: max-content;
+  img {
+    @include sudo-fill(absolute, unset, $gutter, -70px, unset);
+    width: 60px;
+    height: auto;
+    border-radius: 50%;
+  }
+}

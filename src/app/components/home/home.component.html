@@ -1,0 +1,14 @@
+<div class="movies container flex-column">
+  <h1 class="title-thin">Explore Movies</h1>
+
+  <div class="movies__tiles">
+    <ng-container *ngIf="!isSkeleton">
+      <app-movie-card [isSkeleton]="false" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]"></app-movie-card>
+    </ng-container>
+
+    <ng-container *ngIf="isSkeleton">
+      <app-movie-card [isSkeleton]="true" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]"></app-movie-card>
+    </ng-container>
+  </div>
+
+</div>

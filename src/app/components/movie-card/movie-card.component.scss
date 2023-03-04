@@ -1,0 +1,27 @@
+@import "../../../assets/mixin";
+
+.card {
+}
+
+
+.sk{
+  position: relative;
+  gap: $gutter1_2;
+  &__img {
+    background-color: gray;
+    height: 280px;
+    width: 200px;
+  }
+
+  &__heading {
+    background-color: gray;
+    height: 6px;
+    width: calc(100% - 20px);
+  }
+
+  &__desc {
+    background-color: gray;
+    height: 5px;
+    width: calc(100% - 50px);
+  }
+}

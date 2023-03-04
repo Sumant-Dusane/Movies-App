@@ -1,0 +1,33 @@
+@import "../../../assets/variables";
+@import "../../../assets/sudo";
+@import "../../../assets/reset";
+
+.sidebar {
+  @include sudo-fill(fixed, 0, unset, 0, 0);
+  width: 20%;
+  padding-top: 80px;
+  background-color: darken($color: $dark, $amount: 5);
+  z-index: $z-index-negative;
+
+  &__content {
+    @include reset-lists;
+
+    li {
+      padding: $gutter2x $gutter $gutter2x $gutter2x;
+      gap: $gutter;
+
+      &.active {
+        position: relative;
+        color: $pink;
+        background-color: $dark;
+
+        &::before {
+          @include sudo-fill(absolute, unset, $gutter, 30%, unset);
+          font-size: $font-size-m;
+          color: $lightGrayVariant;
+          content: '\0279E';
+        }
+      }
+    }
+  }
+}

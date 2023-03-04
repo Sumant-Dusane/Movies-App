@@ -1,0 +1,58 @@
+@mixin reset-lists {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+::placeholder {
+  color: $lightGray;
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%; // Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.
+  -webkit-tap-highlight-color: transparent; //  Change the default tap highlight to be completely transparent in iOS.
+}
+
+body {
+  margin: 0;
+  font-family: $font-family-content;
+  font-size: $font-size-default;
+  font-weight: $font-weight400;
+  background-color: $dark;
+  color: $lightGray;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+input {
+  color: $white;
+  padding: $gutter1_2 0;
+  border: 0;
+  background: none;
+  outline: 0;
+}
+
+button, li, a {
+  cursor: pointer;
+}
+
+button {
+  outline: 0;
+}
+
+button :focus, button:focus-visible {
+  outline: 0;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}

@@ -1,0 +1,8 @@
+@mixin sudo-fill($position, $top, $right, $bottom, $left) {
+  content: "";
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}

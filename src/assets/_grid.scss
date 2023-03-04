@@ -1,0 +1,14 @@
+@mixin grid-layout($row-layout, $column-layout) {
+  display: grid;
+  grid-template-rows: $row-layout;
+  grid-template-columns: $column-layout;
+}
+
+.grid-two-equal-column {
+  @include grid-layout(unset, repeat(2, 1fr));
+}
+
+.grid-two-equal-rows {
+  @include grid-layout(repeat(2, 1fr), unset);
+}
+
