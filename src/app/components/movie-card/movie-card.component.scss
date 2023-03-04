@@ -16,7 +16,7 @@
     &:after {
       @include sudo-fill(absolute, 0, 0, 0, 0);
       transform: translateX(-100%);
-      background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0));
+      background: linear-gradient(90deg, transparentize($white, 1) 0, transparentize($white, 0.8) 20%, transparentize($white, 0.5) 60%, transparentize($white, 1));
       animation: shimmer 2s infinite;
     }
   }
