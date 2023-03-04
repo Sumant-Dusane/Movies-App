@@ -22,7 +22,7 @@
   }
 
   &__img {
-    height: 280px;
+    height: 250px;
     width: 100%;
   }
 
@@ -34,11 +34,5 @@
   &__desc {
     height: 5px;
     width: calc(100% - 50px);
-  }
-}
-
-@keyframes shimmer {
-  100% {
-    transform: translateX(100%);
   }
 }
