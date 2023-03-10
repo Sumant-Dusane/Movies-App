@@ -1,0 +1,39 @@
+@import "./../../../assets/mixin";
+
+.watch-later {
+  @include grid-layout(unset, 1fr 4fr .5fr);
+  border-radius: $border-radius-normal;
+  background-color: lighten($color: $dark, $amount: 2);
+  font-size: $font-size-base;
+
+  &:not(:first-child) {
+    margin-top: $gutter;
+  }
+
+  & div {
+    padding: $gutter3x $gutter;
+  }
+
+  &__sr-no {
+    position: relative;
+    border-top-left-radius: $border-radius-normal;
+    border-bottom-left-radius: $border-radius-normal;
+    text-align: center;
+    background-color: $black;
+
+    & h2 {
+      position: relative;
+      z-index: $z-index-l;
+    }
+
+    & img {
+      @include sudo-fill(absolute, 0, 0, 0, 0);
+      height: 100%;
+      width: 100%;
+      object-fit: fill;
+      filter: brightness(0.3);
+      border-top-left-radius: $border-radius-normal;
+      border-bottom-left-radius: $border-radius-normal;
+    }
+  }
+}

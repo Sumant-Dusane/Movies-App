@@ -1,12 +1,12 @@
 <div class="sidebar">
   <ul class="sidebar__content flex-column">
 
-    <li class="flex-row" (click)="activeState(1)" [ngClass]="{'active': activeClass === 1}">
+    <li class="flex-row" [routerLink]="['home']" (click)="activeState(1)" [ngClass]="{'active': activeClass === 1}">
       <fa-icon [icon]="iconExplore"></fa-icon>
       Explore
     </li>
 
-    <li class="flex-row" (click)="activeState(2)" [ngClass]="{'active': activeClass === 2}">
+    <li class="flex-row" [routerLink]="['watch-later']" (click)="activeState(2)" [ngClass]="{'active': activeClass === 2}">
       <fa-icon [icon]="iconWatchLater"></fa-icon>
       Watch Later
     </li>

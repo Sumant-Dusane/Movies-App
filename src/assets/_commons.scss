@@ -4,7 +4,13 @@
 }
 
 .container {
-  margin: $gutter $gutter3x;
+  margin-left: 16%;
+  margin-top: 80px;
+  padding: $gutter $gutter2x;
+}
+
+.mv-2 {
+  margin: $gutter2x 0
 }
 
 @keyframes shimmer {

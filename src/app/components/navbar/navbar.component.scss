@@ -4,13 +4,15 @@
 
 
 .navbar {
-  @include sudo-fill(fixed, 0, 0, unset, 0);
-  @include grid-layout(unset, 1fr 3.5fr .5fr);
+  @include sudo-fill(fixed, $gutter, $gutter, unset, $gutter);
+  @include grid-layout(unset, 16% 3.5fr .5fr);
   z-index: $z-index-xl;
   align-items: center;
   justify-content: center;
   background-color: $pink;
-  min-height: 80px;
+  min-height: 60px;
+  border-radius: $border-radius-normal;
+  box-shadow: 0px 0px 18px 1px $pink;
 }
 
 

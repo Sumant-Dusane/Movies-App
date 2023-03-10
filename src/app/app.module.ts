@@ -8,6 +8,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { WatchLaterComponent } from './components/watch-later/watch-later.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MovieCardComponent } from './components/movie-card/movie-card.component
     HomeComponent,
     NavbarComponent,
     SideBarComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    WatchLaterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,19 +1,7 @@
 @import "./../../../assets/mixin";
 
-.movies {
-  margin-left: 20%;
-  margin-top: 80px;
-  padding: $gutter $gutter3x;
-
-  &__title {
-    margin: $gutter2x 0
-  }
-
-  &__tiles {
-    @include grid-layout(repeat(2, 1fr), repeat(5, 1fr));
-    gap: $gutter2x $gutter20;
-    margin-top: $gutter20;
-  }
+.movies__tiles {
+  @include grid-layout(repeat(2, 1fr), repeat(5, 1fr));
+  gap: $gutter2x $gutter20;
+  margin-top: $gutter20;
 }
-
-
