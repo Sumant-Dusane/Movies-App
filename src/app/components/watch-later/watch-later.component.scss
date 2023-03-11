@@ -36,4 +36,8 @@
       border-bottom-left-radius: $border-radius-normal;
     }
   }
+
+  &__close button{
+    color: white;
+  }
 }

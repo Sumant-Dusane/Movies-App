@@ -1,21 +1,18 @@
 <div class="sidebar">
   <ul class="sidebar__content flex-column">
-
-    <li class="flex-row" [routerLink]="['home']" (click)="activeState(1)" [ngClass]="{'active': activeClass === 1}">
+    <li class="flex-row" [routerLink]="['home']" [ngClass]="{'active': activeRoute === '/home'}">
       <fa-icon [icon]="iconExplore"></fa-icon>
       Explore
     </li>
 
-    <li class="flex-row" [routerLink]="['watch-later']" (click)="activeState(2)" [ngClass]="{'active': activeClass === 2}">
+    <li class="flex-row" [routerLink]="['watch-later']" [ngClass]="{'active': activeRoute === '/watch-later'}">
       <fa-icon [icon]="iconWatchLater"></fa-icon>
       Watch Later
     </li>
 
-    <li class="flex-row" (click)="activeState(3)" [ngClass]="{'active': activeClass === 3}">
+    <li class="flex-row" [ngClass]="{'active': activeRoute === '/favourites'}">
       <fa-icon [icon]="iconFavourites" style="color: gold"></fa-icon>
       Favourites
     </li>
-
   </ul>
-
 </div>

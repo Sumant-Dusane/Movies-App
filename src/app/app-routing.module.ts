@@ -5,7 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { WatchLaterComponent } from './components/watch-later/watch-later.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'watch-later', component: WatchLaterComponent},
 ];

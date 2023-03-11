@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-watch-later',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./watch-later.component.scss']
 })
 export class WatchLaterComponent {
-
+  iconDelete = faTrashCan;
 }
