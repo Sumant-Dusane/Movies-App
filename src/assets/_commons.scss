@@ -5,12 +5,27 @@
 
 .container {
   margin-left: 16%;
-  margin-top: 80px;
+  margin-top: 60px;
   padding: $gutter $gutter2x;
 }
 
-.mv-2 {
-  margin: $gutter2x 0
+.mt-2 {
+  margin-top: $gutter2x;
+}
+
+.mb-1 {
+  margin-bottom: $gutter;
+}
+
+.clamp-1 {
+  display: block;
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: -o-ellipsis-lastline;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 @keyframes shimmer {

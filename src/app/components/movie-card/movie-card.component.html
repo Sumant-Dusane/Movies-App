@@ -1,5 +1,7 @@
 <div class="card" *ngIf="!isSkeleton">
-
+  <img class="card__poster" [src]="bundle.Poster == 'N/A' ? '../../../assets/images/movie-poster-default.jpeg' : bundle.Poster" alt={{bundle.Title}}>
+  <h2 class="card__title clamp-1" title={{bundle.title}}>{{bundle.Title}}</h2>
+  <span class="card__type card__type--{{bundle.Type}}">{{bundle.Type}}</span>
 </div>
 
 <div class="card flex-column sk" *ngIf="isSkeleton">

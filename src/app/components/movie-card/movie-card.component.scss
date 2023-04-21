@@ -1,12 +1,45 @@
 @import "../../../assets/mixin";
 
 .card {
+  position: relative;
+  &__poster {
+    height: 250px;
+    max-width: 170px;
+    object-fit: cover;
+  }
+  &__title {
+    font-size: $font-size-base;
+    font-weight: $font-weight600;
+    margin-bottom: $gutter1_2;
+  }
+  &__type {
+    @include sudo-fill(absolute, -12px, unset, unset, 27%);
+    border-radius: $border-radius-medium;
+    font-size: $font-size-default;
+    padding: $gutter1_4 $gutter1_2;
+  }
+
+  &__type--series {
+    color: color-contrast($brownVariant);
+    background-color: $brownVariant;
+  }
+
+  &__type--movie {
+    color: color-contrast($pink);
+    background-color: $pink;
+  }
+
+  &__type--game {
+    color: $dark;
+    background-color: $cyan;
+  }
 }
 
 
 .sk{
   position: relative;
   gap: $gutter1_2;
+  transition: all 200ms ease-in-out;
 
   & div {
     overflow: hidden;
