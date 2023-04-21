@@ -1,6 +1,7 @@
 @import "../../../assets/mixin";
 
 .card {
+  cursor: pointer;
   position: relative;
   &__poster {
     height: 250px;
@@ -17,22 +18,50 @@
     border-radius: $border-radius-medium;
     font-size: $font-size-default;
     padding: $gutter1_4 $gutter1_2;
-  }
 
-  &__type--series {
-    color: color-contrast($brownVariant);
-    background-color: $brownVariant;
-  }
+    &--series {
+      color: color-contrast($brownVariant);
+      background-color: $brownVariant;
+    }
 
-  &__type--movie {
-    color: color-contrast($pink);
-    background-color: $pink;
-  }
+    &--movie {
+      color: color-contrast($pink);
+      background-color: $pink;
+    }
 
-  &__type--game {
-    color: $dark;
-    background-color: $cyan;
+    &--game {
+      color: $dark;
+      background-color: $cyan;
+    }
   }
+}
+
+.card__sideables {
+  visibility: hidden;
+  opacity: 0;
+  gap: $gutter;
+  @include sudo-fill(absolute, $gutter1_2, $gutter1_2, unset, unset);
+  transition: $transition-in-out;
+
+  button {
+    color: $white;
+    transition: $transition-in-out;
+
+    &:first-child:hover {
+      color: $pink;
+      transition: $transition-in-out;
+    }
+    &:nth-child(2):hover {
+      color: gold;
+      transition: $transition-in-out;
+    }
+  }
+}
+
+.card:hover .card__sideables {
+  opacity: 1;
+  visibility: visible;
+  transition: $transition-in-out;
 }
 
 

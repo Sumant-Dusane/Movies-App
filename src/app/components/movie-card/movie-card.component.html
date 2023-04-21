@@ -2,6 +2,14 @@
   <img class="card__poster" [src]="bundle.Poster == 'N/A' ? '../../../assets/images/movie-poster-default.jpeg' : bundle.Poster" alt={{bundle.Title}}>
   <h2 class="card__title clamp-1" title={{bundle.title}}>{{bundle.Title}}</h2>
   <span class="card__type card__type--{{bundle.Type}}">{{bundle.Type}}</span>
+  <div class="card__sideables flex-column">
+    <button type="button" (click)="addToWatchLater(bundle.imdbID)">
+      <fa-icon [icon]="iconWatchLater"></fa-icon>
+    </button>
+    <button type="button">
+      <fa-icon [icon]="iconFavourites" (click)="addToFavourites(bundle.imdbID)"></fa-icon>
+    </button>
+  </div>
 </div>
 
 <div class="card flex-column sk" *ngIf="isSkeleton">

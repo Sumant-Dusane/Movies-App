@@ -28,6 +28,7 @@ export class HomeComponent{
   setData(reponse: any) {
     this.searchData = reponse.Search;
     this.isSkeleton = false;
+    console.log(this.searchData);
   }
 
 }

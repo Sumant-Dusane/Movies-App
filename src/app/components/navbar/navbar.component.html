@@ -7,7 +7,7 @@
   <div class="search-bar flex-row-all-center">
     <fa-icon [icon]="searchIcon"></fa-icon>
     <input type="text" class="search-bar--input" placeholder="Search for Movies" [(ngModel)]="movieName">
-    <a routerLink="/home/{{movieName}}" type="submit">Enter</a>
+    <a routerLink="/home/{{movieName}}" (click)="movieName = ''" type="submit">Enter</a>
   </div>
 
   <div class="credits flex-column">
