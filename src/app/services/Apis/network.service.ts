@@ -7,10 +7,14 @@ import { map } from 'rxjs';
 })
 export class NetworkService {
 
+  apikey = '39ccf8ac';
+  endpoint = 'https://www.omdbapi.com/?apikey=' + this.apikey;
+
   constructor(private http: HttpClient) { }
 
   getDatafromSearch(searchParam: string | null) {
-    return this.http.get('https://www.omdbapi.com/?apikey=39ccf8ac&s=' + searchParam);
+    let url = this.endpoint + '&s=' + searchParam;
+    return this.http.get(url);
   }
 
   // getTrendingMoviesID() {
