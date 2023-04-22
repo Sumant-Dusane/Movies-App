@@ -1,18 +1,9 @@
 <div class="container flex-column">
   <h1 class="title-thin mt-2 mb-1">Watch Later</h1>
-  <ul class="flex-column">
-    <li class="watch-later">
-      <div class="watch-later__sr-no">
-        <h2>{{10}}</h2>
-        <img src="https://flxt.tmsimg.com/assets/p10406404_b1t_v9_aa.jpg" alt="{{'Sherlock Holmes: Lost Era'}}">
-      </div>
-      <div class="watch-later__name">{{'Sherlock Holmes: Lost Era'}}</div>
-      <div class="watch-later__close">
-        <button>
-          <fa-icon [icon]="iconDelete"></fa-icon>
-        </button>
-      </div>
-    </li>
-  </ul>
-
+  <div class="movies__tiles">
+    <!-- <ng-container *ngIf="!isLoading"> -->
+      <app-watch-later-card *ngFor="let item of moviesData" [bundle]="item"></app-watch-later-card>
+    <!-- </ng-container> -->
+    <!-- <ng-container *ngIf="isLoading">please wait....</ng-container> -->
+  </div>
 </div>

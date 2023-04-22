@@ -3,6 +3,13 @@
   font-weight: $font-weight300;
 }
 
+.movies__tiles {
+  @include grid-layout(repeat(2, 1fr), repeat(5, 1fr));
+  gap: $gutter2x $gutter20;
+  margin-top: $gutter20;
+}
+
+
 .container {
   margin-left: 16%;
   margin-top: 60px;

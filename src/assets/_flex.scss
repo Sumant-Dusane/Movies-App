@@ -37,3 +37,12 @@
   @extend .flex-column;
   justify-content: center;
 }
+
+
+.gap {
+  gap: $gutter;
+}
+
+.gap2x {
+  gap: $gutter2x;
+}

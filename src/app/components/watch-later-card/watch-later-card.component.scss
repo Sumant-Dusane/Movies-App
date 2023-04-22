@@ -1,0 +1,41 @@
+@import "./../../../assets/variables";
+@import "./../../../assets/sudo";
+@import "./../../../assets/grid";
+
+
+.card {
+  position: relative;
+  background-color: #121417;
+  overflow: hidden;
+  border-radius: $border-radius-medium;
+  box-shadow: $box-shadow-large;
+
+  &__close {
+    cursor: pointer;
+    @include sudo-fill(absolute, 8px, 8px, unset, unset);
+    color: $white;
+    mix-blend-mode: luminosity;
+    z-index: $z-index-s;
+  }
+
+  &__poster {
+    height: 250px;
+    object-fit: cover;
+    filter: opacity(.6);
+  }
+
+  &__title {
+    padding: 0 $gutter1_2;
+  }
+
+  &__chips {
+    padding: 0 $gutter1_2 $gutter;
+
+    span {
+      padding: $gutter1_4;
+      border-radius: $border-radius-medium;
+      background-color: cadetblue;
+      font-size: $font-size-xxs;
+    }
+  }
+}

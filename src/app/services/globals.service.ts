@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -37,5 +38,17 @@ export class GlobalsService {
     arrId.push(imdbId);
     this.favourites = JSON.stringify(arrId);
     localStorage.setItem('favourites', this.favourites);
+  }
+
+  popFromWatchLater(imdbId: string) {
+    let arrId :any[] = [];
+    if(this.watchLater) {
+      arrId = JSON.parse(this.watchLater);
+    }
+    arrId.forEach((e, i) => {
+      if (e == imdbId) arrId.splice(i, 1);
+    });
+    this.watchLater = JSON.stringify(arrId);
+    localStorage.setItem('watchLater', this.watchLater);
   }
 }

@@ -12,9 +12,6 @@ export class NetworkService {
     'x-rapidapi-key': '7c1834b123msh528683e4aab2695p16995fjsn5ec42d00ed6b'
   });
 
-  // apikey = '39ccf8ac';
-  // endpoint = 'https://www.omdbapi.com/?apikey=' + this.apikey;
-
   endpoint = 'https://imdb8.p.rapidapi.com/';
 
   constructor(private http: HttpClient) { }
@@ -28,8 +25,8 @@ export class NetworkService {
   //   this.topMoviesId$ = this.get('https://imdb8.p.rapidapi.com/title/get-top-rated-movies')
   // }
 
-  // getDatafromID(id: string = 'tt0944947') {
-  //   this.dataFromID$ = this.get('https://imdb8.p.rapidapi.com/title/get-details?tconst='+id)
-  // }
-
+  getDatafromID(id: string) {
+    let url = this.endpoint + 'title/get-details?tconst=' + id;
+    return this.http.get(url, {headers: this.headers});
+  }
 }
