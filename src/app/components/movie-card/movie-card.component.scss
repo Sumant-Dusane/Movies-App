@@ -1,4 +1,5 @@
-@import "../../../assets/mixin";
+@import "../../../assets/variables";
+@import "../../../assets/sudo";
 
 .card {
   cursor: pointer;
@@ -20,18 +21,28 @@
     padding: $gutter1_4 $gutter1_2;
 
     &--series {
-      color: color-contrast($brownVariant);
+      color: $white;
       background-color: $brownVariant;
     }
 
     &--movie {
-      color: color-contrast($pink);
+      color: $white;
       background-color: $pink;
     }
 
-    &--game {
-      color: $dark;
-      background-color: $cyan;
+    &--mini-series {
+      color: $white;
+      background-color: magenta;
+    }
+
+    &--music {
+      color: $white;
+      background-color: blue;
+    }
+
+    &--other {
+      color: $white;
+      background-color: $black;
     }
   }
 }

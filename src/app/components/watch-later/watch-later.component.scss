@@ -1,4 +1,6 @@
-@import "./../../../assets/mixin";
+@import "./../../../assets/variables";
+@import "./../../../assets/sudo";
+@import "./../../../assets/grid";
 
 .watch-later {
   @include grid-layout(unset, 1fr 4fr .5fr);

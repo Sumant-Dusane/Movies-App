@@ -1,13 +1,22 @@
 <div class="card" *ngIf="!isSkeleton">
-  <img class="card__poster" [src]="bundle.Poster == 'N/A' ? '../../../assets/images/movie-poster-default.jpeg' : bundle.Poster" alt={{bundle.Title}}>
-  <h2 class="card__title clamp-1" title={{bundle.title}}>{{bundle.Title}}</h2>
-  <span class="card__type card__type--{{bundle.Type}}">{{bundle.Type}}</span>
+  <img  class="card__poster" [src]="bundle?.i?.imageUrl ? bundle?.i?.imageUrl : '../../../assets/images/movie-poster-default.jpeg'" alt={{bundle?.l}}>
+  <h2   *ngIf="bundle.l" class="card__title clamp-1" title={{bundle?.l}}>{{bundle?.l}}</h2>
+  <span *ngIf="bundle.q" class="card__type"
+    [ngClass]="{
+        'card__type--movie': bundle?.q == 'feature',
+        'card__type--music': bundle?.q == 'musicVideo',
+        'card__type--mini-series': bundle?.q == 'TV mini-series',
+        'card__type--series' : bundle?.q == 'TV series',
+        'card__type--other' : bundle?.q != 'feature' && bundle?.q != 'TV mini-series' && bundle?.q != 'TV series' && bundle?.q != 'musicVideo'
+    }">
+    {{bundle?.q}}
+  </span>
   <div class="card__sideables flex-column">
-    <button type="button" (click)="addToWatchLater(bundle.imdbID)">
+    <button type="button" (click)="addToWatchLater(bundle?.id)">
       <fa-icon [icon]="iconWatchLater"></fa-icon>
     </button>
     <button type="button">
-      <fa-icon [icon]="iconFavourites" (click)="addToFavourites(bundle.imdbID)"></fa-icon>
+      <fa-icon [icon]="iconFavourites" (click)="addToFavourites(bundle?.id)"></fa-icon>
     </button>
   </div>
 </div>
