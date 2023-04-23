@@ -14,14 +14,13 @@
     cursor: pointer;
     @include sudo-fill(absolute, 8px, 8px, unset, unset);
     color: $white;
-    mix-blend-mode: luminosity;
+    mix-blend-mode: difference;
     z-index: $z-index-s;
   }
 
   &__poster {
     height: 250px;
     object-fit: cover;
-    filter: opacity(.6);
   }
 
   &__title {

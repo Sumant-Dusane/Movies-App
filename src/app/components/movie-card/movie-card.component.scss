@@ -20,27 +20,27 @@
     font-size: $font-size-default;
     padding: $gutter1_4 $gutter1_2;
 
-    &--series {
-      color: $white;
-      background-color: $brownVariant;
-    }
-
-    &--movie {
-      color: $white;
-      background-color: $pink;
-    }
-
-    &--mini-series {
+    &--A {
       color: $white;
       background-color: magenta;
     }
 
-    &--music {
+    &--B {
       color: $white;
-      background-color: blue;
+      background-color: $pink;
     }
 
-    &--other {
+    &--C {
+      color: $white;
+      background-color: $brownVariant;
+    }
+
+    &--D {
+      color: $white;
+      background-color: blueviolet;
+    }
+
+    &--E {
       color: $white;
       background-color: $black;
     }

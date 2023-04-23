@@ -1,15 +1,8 @@
 <div class="card" *ngIf="!isSkeleton">
-  <img  class="card__poster" [src]="bundle?.i?.imageUrl ? bundle?.i?.imageUrl : '../../../assets/images/movie-poster-default.jpeg'" alt={{bundle?.l}}>
-  <h2   *ngIf="bundle.l" class="card__title clamp-1" title={{bundle?.l}}>{{bundle?.l}}</h2>
-  <span *ngIf="bundle.q" class="card__type"
-    [ngClass]="{
-        'card__type--movie': bundle?.q == 'feature',
-        'card__type--music': bundle?.q == 'musicVideo',
-        'card__type--mini-series': bundle?.q == 'TV mini-series',
-        'card__type--series' : bundle?.q == 'TV series',
-        'card__type--other' : bundle?.q != 'feature' && bundle?.q != 'TV mini-series' && bundle?.q != 'TV series' && bundle?.q != 'musicVideo'
-    }">
-    {{bundle?.q}}
+  <img  class="card__poster" [src]="bundle?.poster_path ? imageBaseUrl + bundle?.poster_path : '../../../assets/images/movie-poster-default.jpeg'" alt={{bundle?.title}}>
+  <h2   *ngIf="bundle?.title" class="card__title clamp-1" title={{bundle?.title}}>{{bundle?.title}}</h2>
+  <span *ngIf="bundle.popularity" class="card__type {{popularityClass}}">
+    {{bundle?.popularity}}
   </span>
   <div class="card__sideables flex-column">
     <button type="button" (click)="addToWatchLater(bundle?.id)">

@@ -11,14 +11,18 @@ export class WatchLaterComponent {
 
   watchLater: any;
   isLoading: boolean;
+  isEmpty: boolean;
   moviesData: any[] = [];
 
   constructor(private globalService: GlobalsService, private networkService: NetworkService) {
     this.watchLater = JSON.parse(this.globalService.watchLater);
-    if (this.watchLater) {
+    if (this.watchLater.length != 0) {
+      this.isEmpty = false;
       for(let i = 0; i < this.watchLater.length; i++) {
         this.getDatafromID(this.watchLater[i], i == this.watchLater.length - 1 ? false : true);
       }
+    } else {
+      this.isEmpty = true;
     }
   }
 

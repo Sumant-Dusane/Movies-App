@@ -1,0 +1,11 @@
+<div class="card flex-column-all-center gap">
+  <ng-container *ngIf="statusCode == 404">
+    NOT FOUND
+  </ng-container>
+
+  <ng-container *ngIf="statusCode == 500">
+    <img class="card__image" src="../../../assets/images/empty_state.svg" alt="Empty">
+    <h1 class="card__title">No Movies Found in {{source}}</h1>
+    <a routerLink="../home/welcome" class="btn-primary card__redirect">Explore Movies &rarr;</a>
+  </ng-container>
+</div>

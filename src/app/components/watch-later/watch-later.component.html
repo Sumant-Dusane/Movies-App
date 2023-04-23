@@ -1,9 +1,12 @@
 <div class="container flex-column">
-  <h1 class="title-thin mt-2 mb-1">Watch Later</h1>
-  <div class="movies__tiles">
-    <!-- <ng-container *ngIf="!isLoading"> -->
+  <ng-container *ngIf="!isLoading && !isEmpty">
+    <h1 class="title-thin mt-2 mb-1">Watch Later</h1>
+    <div class="movies__tiles">
       <app-watch-later-card *ngFor="let item of moviesData" [bundle]="item"></app-watch-later-card>
-    <!-- </ng-container> -->
-    <!-- <ng-container *ngIf="isLoading">please wait....</ng-container> -->
-  </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!isLoading && isEmpty">
+    <app-null-state class="mt-2" [source]="'Watch Later'" [statusCode]="500"></app-null-state>
+  </ng-container>
+  <ng-container *ngIf="isLoading">please wait....</ng-container>
 </div>

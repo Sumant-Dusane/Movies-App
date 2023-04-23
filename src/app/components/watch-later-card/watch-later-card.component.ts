@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { faClose } from "@fortawesome/free-solid-svg-icons";
+import { NetworkService } from 'src/app/services/Apis/network.service';
 import { GlobalsService } from 'src/app/services/globals.service';
 
 @Component({
@@ -7,14 +8,19 @@ import { GlobalsService } from 'src/app/services/globals.service';
   templateUrl: './watch-later-card.component.html',
   styleUrls: ['./watch-later-card.component.scss']
 })
-export class WatchLaterCardComponent {
+export class WatchLaterCardComponent implements OnInit{
   @Input() bundle: any;
   iconRemove = faClose;
+  year: string;
+  imageBaseUrl = this.networkService.baseUrl;
 
-  constructor(private globalService: GlobalsService) { }
+  constructor(private globalService: GlobalsService, private networkService: NetworkService) { }
+
+  ngOnInit(): void {
+    this.year = this.bundle.release_date.slice(0, 4);
+  }
 
   popFromWatchLater(imdbId: string) {
-    let id = imdbId.substring(7).slice(0, -1);
-    this.globalService.popFromWatchLater(id);
+    this.globalService.popFromWatchLater(imdbId);
   }
 }

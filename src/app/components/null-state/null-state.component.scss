@@ -1,0 +1,16 @@
+@import "../../../assets/variables";
+@import "../../../assets/sudo";
+
+
+.card {
+  padding: $gutter3x;
+  background-color: darken($color: $dark, $amount: 5);
+  border-radius: $border-radius-medium;
+  width: max-content;
+  margin: 0 auto;
+
+  &__image {
+    max-height: 300px;
+  }
+
+}
