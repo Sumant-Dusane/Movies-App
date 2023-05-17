@@ -5,6 +5,7 @@ $font-family-content: 'Open Sans', 'PT Sans', -apple-system, BlinkMacSystemFont,
 $white: #FFFFFF;
 $black: #000000;
 $dark: #282D33;
+$darkVariant: #121417;
 $cyan: #7CC8CC;
 $pink: #FC4D55;
 $grey: #7B959E;
@@ -32,6 +33,7 @@ $gutter20: $gutter * 1.25;                        //20px
 $gutter2x: $gutter * 2;                           //32px
 $gutter3x: $gutter * 3;                           //48px
 $gutter4x: $gutter * 4;                           //64px
+$gutter7x: $gutter * 7;                           //112px
 
 // font weights
 $font-weight100: 100;

@@ -8,6 +8,11 @@
   padding-top: 80px;
   background-color: darken($color: $dark, $amount: 5);
   z-index: $z-index-l;
+  transition: all 400ms linear;
+
+  &.collapsed {
+    left: -250px;
+  }
 
   &__content li {
     cursor: pointer;

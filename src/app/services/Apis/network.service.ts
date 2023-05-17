@@ -1,32 +1,31 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NetworkService {
 
-  headers = new HttpHeaders({
-    'x-rapidapi-host': 'imdb8.p.rapidapi.com',
-    'x-rapidapi-key': '7c1834b123msh528683e4aab2695p16995fjsn5ec42d00ed6b'
-  });
+  baseUrl = 'https://image.tmdb.org/t/p/w500';
+  apiKey = '507af3f601c7cc39022ad9ceb9dcbb4a';
+  endpoint = 'https://api.themoviedb.org/3/';
 
-  endpoint = 'https://imdb8.p.rapidapi.com/';
+  constructor(private http: HttpClient) {
 
-  constructor(private http: HttpClient) { }
-
-  getDatafromSearch(searchParam: string | null) {
-    let url = this.endpoint + 'auto-complete?q=' + searchParam;
-    return this.http.get(url, {headers: this.headers});
   }
 
-  // getTrendingMoviesID() {
-  //   this.topMoviesId$ = this.get('https://imdb8.p.rapidapi.com/title/get-top-rated-movies')
-  // }
+  getDatafromSearch(searchParam: string | null) {
+    let url = this.endpoint + 'search/movie?query=' + searchParam  +  '&api_key=' + this.apiKey;
+    return this.http.get(url);
+  }
+
+  getTrendingMovies() {
+    let url = this.endpoint + 'movie/popular?api_key=' + this.apiKey;
+    return this.http.get(url);
+  }
 
   getDatafromID(id: string) {
-    let url = this.endpoint + 'title/get-details?tconst=' + id;
-    return this.http.get(url, {headers: this.headers});
+    let url = this.endpoint + 'movie/' + id + '?api_key=' + this.apiKey;
+    return this.http.get(url);
   }
 }

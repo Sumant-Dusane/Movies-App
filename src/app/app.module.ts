@@ -12,6 +12,8 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { WatchLaterComponent } from './components/watch-later/watch-later.component';
 import { WatchLaterCardComponent } from './components/watch-later-card/watch-later-card.component';
+import { NullStateComponent } from './components/null-state/null-state.component';
+import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { WatchLaterCardComponent } from './components/watch-later-card/watch-lat
     SideBarComponent,
     MovieCardComponent,
     WatchLaterComponent,
-    WatchLaterCardComponent
+    WatchLaterCardComponent,
+    NullStateComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,

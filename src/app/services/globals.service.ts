@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,6 +8,8 @@ export class GlobalsService {
 
   watchLater: any;
   favourites: any;
+  isSideBarOpen = new EventEmitter<boolean>();
+  isNavbarOpen: boolean = true;
 
   constructor() {
     this.watchLater = localStorage.getItem('watchLater');
@@ -20,22 +22,36 @@ export class GlobalsService {
     }
   }
 
-  addToWatchLater(imdbId: string) {
+  updateSideBarVisibility(isVisible: boolean) {
+    this.isSideBarOpen.emit(isVisible);
+  }
+
+  toggleWatchLater(imdbId: string) {
     let arrId : any[] = [];
     if(this.watchLater) {
       arrId = JSON.parse(this.watchLater);
     }
-    arrId.push(imdbId);
+    if(arrId.includes(imdbId)) {
+      this.popFromWatchLater(imdbId);
+      return;
+    }else {
+      arrId.push(imdbId);
+    }
     this.watchLater = JSON.stringify(arrId);
     localStorage.setItem('watchLater', this.watchLater);
   }
 
-  addToFavourites(imdbId: string) {
+  toggleFavourites(imdbId: string) {
     let arrId : any[] = [];
     if(this.favourites) {
       arrId = JSON.parse(this.favourites);
     }
-    arrId.push(imdbId);
+    if(arrId.includes(imdbId)) {
+      this.popFromFavourites(imdbId);
+      return;
+    }else {
+      arrId.push(imdbId);
+    }
     this.favourites = JSON.stringify(arrId);
     localStorage.setItem('favourites', this.favourites);
   }
@@ -50,5 +66,17 @@ export class GlobalsService {
     });
     this.watchLater = JSON.stringify(arrId);
     localStorage.setItem('watchLater', this.watchLater);
+  }
+
+  popFromFavourites(imdbId: string) {
+    let arrId :any[] = [];
+    if(this.favourites) {
+      arrId = JSON.parse(this.favourites);
+    }
+    arrId.forEach((e, i) => {
+      if (e == imdbId) arrId.splice(i, 1);
+    });
+    this.favourites = JSON.stringify(arrId);
+    localStorage.setItem('favourites', this.favourites);
   }
 }

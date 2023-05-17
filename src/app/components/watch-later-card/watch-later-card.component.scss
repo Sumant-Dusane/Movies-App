@@ -4,10 +4,10 @@
 
 
 .card {
+  cursor: pointer;
   position: relative;
-  background-color: #121417;
+  background-color: $darkVariant;
   overflow: hidden;
-  border-radius: $border-radius-medium;
   box-shadow: $box-shadow-large;
 
   &__close {
@@ -19,7 +19,7 @@
   }
 
   &__poster {
-    height: 250px;
+    height: 300px;
     object-fit: cover;
   }
 
@@ -29,12 +29,10 @@
 
   &__chips {
     padding: 0 $gutter1_2 $gutter;
+  }
 
-    span {
-      padding: $gutter1_4;
-      border-radius: $border-radius-medium;
-      background-color: cadetblue;
-      font-size: $font-size-xxs;
-    }
+  &::after {
+    @include sudo-fill(absolute, 299px, 0, unset, 0);
+    box-shadow: 0px 1px 6px 8px $darkVariant;
   }
 }

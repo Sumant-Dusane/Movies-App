@@ -1,6 +1,6 @@
-<div class="sidebar">
+<div class="sidebar" [ngClass]="{'collapsed': !isCollapsed}">
   <ul class="sidebar__content flex-column">
-    <li class="flex-row" [routerLink]="['home/welcome']" [ngClass]="{'active': activeRoute === '/home/welcome'}">
+    <li class="flex-row" [routerLink]="['home']" [ngClass]="{'active': activeRoute === '/home'}">
       <fa-icon [icon]="iconExplore"></fa-icon>
       Explore
     </li>

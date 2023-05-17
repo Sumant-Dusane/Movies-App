@@ -1,9 +1,9 @@
-<div class="card flex-column gap">
-  <a routerLink="../home/welcome" (click)="popFromWatchLater(bundle?.id)" class="card__close"><fa-icon [icon]="iconRemove"></fa-icon></a>
+<div routerLink="../movie/{{bundle?.id}}" class="card flex-column gap">
+  <a [routerLink]="'../home'" (click)="popFromWatchLater(bundle?.id)" class="card__close"><fa-icon [icon]="iconRemove"></fa-icon></a>
   <img class="card__poster" [src]="imageBaseUrl + bundle?.poster_path" alt={{bundle?.title}}>
   <h3 class="card__title clamp-1">{{bundle?.title}}</h3>
   <div class="card__chips flex-row gap">
-    <span *ngIf="bundle?.popularity">{{bundle?.popularity}}</span>
-    <span *ngIf="year">{{year}}</span>
+    <span class="pill" *ngIf="bundle?.vote_average">{{bundle?.vote_average}}</span>
+    <span class="pill" *ngIf="year">{{year}}</span>
   </div>
 </div>

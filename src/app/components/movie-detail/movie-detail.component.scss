@@ -1,0 +1,38 @@
+@import "../../../assets/variables";
+@import "../../../assets/sudo";
+
+.backdrop {
+  @include element-position(absolute, 80px, 0, 0, 0);
+  filter: brightness(.5);
+  z-index: $z-index-negative;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+.movie {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  height: 90vh;
+  margin: 80px 100px 0 100px;
+  padding: $gutter $gutter7x;
+  &__poster {
+    max-height: 500px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.295);
+  }
+  &__trailer {
+    padding: $gutter $gutter1_2;
+    border-top: 1px solid $grey;
+    margin-top: $gutter;
+    width: 100%;
+
+    button {
+      color: $white;
+      transition: $transition-in-out;
+      &:hover {
+        color: $pink;
+        transition: $transition-in-out;
+      }
+    }
+  }
+}

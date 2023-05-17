@@ -10,7 +10,7 @@ import { GlobalsService } from 'src/app/services/globals.service';
 export class WatchLaterComponent {
 
   watchLater: any;
-  isLoading: boolean;
+  isLoading: boolean = true;
   isEmpty: boolean;
   moviesData: any[] = [];
 
@@ -18,23 +18,24 @@ export class WatchLaterComponent {
     this.watchLater = JSON.parse(this.globalService.watchLater);
     if (this.watchLater.length != 0) {
       this.isEmpty = false;
+      this.isLoading = true;
       for(let i = 0; i < this.watchLater.length; i++) {
-        this.getDatafromID(this.watchLater[i], i == this.watchLater.length - 1 ? false : true);
+        this.getDatafromID(this.watchLater[i]);
       }
     } else {
       this.isEmpty = true;
     }
   }
 
-  getDatafromID(id: string, isLoading: boolean) {
+  getDatafromID(id: string) {
     this.networkService.getDatafromID(id).subscribe(data => {
       let response = data;
-      this.setData(response, isLoading);
+      this.setData(response);
     });
   }
 
-  setData(response: any, isLoading: boolean) {
+  setData(response: any) {
     this.moviesData.push(response);
-    this.isLoading = isLoading;
+    this.isLoading = false;
   }
 }

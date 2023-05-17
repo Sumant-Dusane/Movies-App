@@ -1,15 +1,15 @@
 <div class="card" *ngIf="!isSkeleton">
-  <img  class="card__poster" [src]="bundle?.poster_path ? imageBaseUrl + bundle?.poster_path : '../../../assets/images/movie-poster-default.jpeg'" alt={{bundle?.title}}>
+  <img routerLink="/movie/{{bundle?.id}}" class="card__poster" [src]="imageBaseUrl + bundle?.poster_path" alt={{bundle?.title}}>
   <h2   *ngIf="bundle?.title" class="card__title clamp-1" title={{bundle?.title}}>{{bundle?.title}}</h2>
   <span *ngIf="bundle.popularity" class="card__type {{popularityClass}}">
     {{bundle?.popularity}}
   </span>
   <div class="card__sideables flex-column">
-    <button type="button" (click)="addToWatchLater(bundle?.id)">
+    <button type="button" (click)="toggleWatchLater(bundle?.id)" [ngClass]="{'in-watch-later': isAddedToWatchLater}">
       <fa-icon [icon]="iconWatchLater"></fa-icon>
     </button>
-    <button type="button">
-      <fa-icon [icon]="iconFavourites" (click)="addToFavourites(bundle?.id)"></fa-icon>
+    <button type="button" (click)="toggleFavourites(bundle?.id)" [ngClass]="{'in-favourites': isAddedToFavourites}">
+      <fa-icon [icon]="iconFavourites"></fa-icon>
     </button>
   </div>
 </div>

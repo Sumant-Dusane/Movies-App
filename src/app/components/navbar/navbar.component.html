@@ -1,5 +1,5 @@
-<nav class="navbar">
-  <div class="logo flex-row-all-center" routerLink="/">
+<nav class="navbar" [ngClass]="{'collapsed': !isCollapsed}">
+  <div class="logo flex-row-all-center" routerLink="/home">
     <fa-icon [icon]="logoIcon"></fa-icon>
     Movies App
   </div>
@@ -7,7 +7,7 @@
   <div class="search-bar flex-row-all-center">
     <fa-icon [icon]="searchIcon"></fa-icon>
     <input type="text" class="search-bar--input" placeholder="Search for Movies" [(ngModel)]="movieName">
-    <a routerLink="/home/{{movieName}}" (click)="movieName = ''" type="submit">Enter</a>
+    <a routerLink="/search/{{movieName}}" (click)="movieName = ''" type="submit">Enter</a>
   </div>
 
   <div class="credits flex-column">

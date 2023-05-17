@@ -8,6 +8,10 @@
     height: 250px;
     max-width: 170px;
     object-fit: cover;
+    background: url('../../../assets/images/movie-poster-default.jpeg') center center no-repeat;
+    min-height: 250px;
+    min-width: 170px;
+    background-size: cover;
   }
   &__title {
     font-size: $font-size-base;
@@ -32,17 +36,17 @@
 
     &--C {
       color: $white;
-      background-color: $brownVariant;
+      background-color: blueviolet;
     }
 
     &--D {
       color: $white;
-      background-color: blueviolet;
+      background-color: $brownVariant;
     }
 
     &--E {
       color: $white;
-      background-color: $black;
+      background-color: dodgerblue;
     }
   }
 }
@@ -58,13 +62,17 @@
     color: $white;
     transition: $transition-in-out;
 
-    &:first-child:hover {
+    &:first-child:hover, &.in-watch-later {
       color: $pink;
       transition: $transition-in-out;
     }
-    &:nth-child(2):hover {
+    &:nth-child(2):hover, &.in-favourites {
       color: gold;
       transition: $transition-in-out;
+    }
+
+    &.in-watch-later {
+
     }
   }
 }

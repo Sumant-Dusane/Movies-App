@@ -1,0 +1,27 @@
+<div class="movie">
+  <div class="backdrop" [ngStyle]="{'background': 'url(' + baseUrl + movieData?.backdrop_path + ')'}"></div>
+  <ng-container *ngIf="!isLoading">
+    <div class="flex-row gap2x">
+      <img class="movie__poster" [src]="baseUrl + movieData?.poster_path" alt={{movieData?.title}}>
+      <div class="movie__details flex-column gap">
+        <small class="year">{{movieData.release_date | slice:0:4}}</small>
+        <h1 class="title">{{movieData?.title}}</h1>
+        <span class="info">{{movieData?.release_date}}</span>
+        <div class="info">
+          <ng-container *ngFor="let item of movieData?.genres">
+            <span class="pill">{{item?.name}}</span>
+          </ng-container>
+        </div>
+        <p class="desc">{{movieData?.overview}}</p>
+      </div>
+    </div>
+    <div class="movie__trailer">
+      <button class="flex-row gap"><fa-icon [icon]="playIcon"></fa-icon>Play Trailer</button>
+    </div>
+  </ng-container>
+
+
+  <ng-container *ngIf="isLoading">
+    please wait...
+  </ng-container>
+</div>

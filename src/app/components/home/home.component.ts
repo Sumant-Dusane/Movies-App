@@ -14,7 +14,11 @@ export class HomeComponent{
   constructor(private route: ActivatedRoute,private networkService: NetworkService) {
     this.route.params.subscribe(params => {
       this.isSkeleton = true;
-      this.getDataFromSearch(params['title']);
+      if(params['title']) {
+        this.getDataFromSearch(params['title']);
+      } else {
+        this.getTrendingMovies();
+      }
     });
   }
 
@@ -23,6 +27,13 @@ export class HomeComponent{
       let reponse = data;
       this.setData(reponse);
     });
+  }
+
+  getTrendingMovies() {
+    this.networkService.getTrendingMovies().subscribe(data => {
+      let response = data;
+      this.setData(response);
+    })
   }
 
   setData(reponse: any) {
