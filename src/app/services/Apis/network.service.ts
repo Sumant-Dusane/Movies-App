@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class NetworkService {
 
-  baseUrl = 'https://image.tmdb.org/t/p/w500';
+  baseUrl = 'https://image.tmdb.org/t/p/w1280';
   apiKey = '507af3f601c7cc39022ad9ceb9dcbb4a';
   endpoint = 'https://api.themoviedb.org/3/';
 
@@ -16,6 +16,11 @@ export class NetworkService {
 
   getDatafromSearch(searchParam: string | null) {
     let url = this.endpoint + 'search/movie?query=' + searchParam  +  '&api_key=' + this.apiKey;
+    return this.http.get(url);
+  }
+
+  getDataMedia(id: string) {
+    let url = this.endpoint + 'movie/' + id + '/videos?api_key=' + this.apiKey;
     return this.http.get(url);
   }
 

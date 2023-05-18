@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GlobalsService } from 'src/app/services/globals.service';
 import { faSignal, faSearch } from "@fortawesome/free-solid-svg-icons";
-import { NetworkService } from 'src/app/services/Apis/network.service';
-import { HomeComponent } from '../home/home.component';
+import { Subscription } from 'rxjs/internal/Subscription';
 
 @Component({
   selector: 'app-navbar',
@@ -13,12 +12,15 @@ export class NavbarComponent implements OnInit{
   logoIcon = faSignal;
   searchIcon = faSearch;
   movieName: string;
-  isCollapsed: boolean;
+  navbarSubscription: Subscription;
+  isCollapsed: boolean = true;
 
   constructor(public globalservice: GlobalsService) { }
 
   ngOnInit(): void {
-    this.isCollapsed = this.globalservice.isNavbarOpen;
+    this.navbarSubscription = this.globalservice.isNavbarOpen.subscribe((status) => {
+      this.isCollapsed = status;
+    })
   }
 
 }

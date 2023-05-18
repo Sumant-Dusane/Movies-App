@@ -32,6 +32,55 @@
   }
 }
 
+.modal {
+  @include element-position(absolute, 0, 0, 0, 0);
+  display: flex;
+
+  &-backdrop {
+    @include element-position(absolute, 0, 0, 0, 0);
+    background-color: transparentize($color: $black, $amount: 0.5);
+    z-index: $z-index-xxs;
+  }
+
+  &-dialog {
+    display: flex;
+    width: calc(100% - $gutter2x);
+    height: calc(100% - $gutter4x);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    align-self: center;
+    z-index: $z-index-l;
+    margin: 0 auto;
+    padding: $gutter;
+    background: $black;
+    border-radius: $border-radius-medium;
+    gap: $gutter;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    text-align: start;
+    width: 100%;
+
+    .close-modal {
+      font-size: $font-size-sm;
+    }
+  }
+
+  &-body {
+    width: 100%;
+    height: 100%;
+
+    iframe {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
 .container {
   margin-left: 16%;
   margin-top: 80px;

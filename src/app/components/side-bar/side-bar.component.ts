@@ -1,7 +1,7 @@
 import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { faClock, faStar, faMap } from '@fortawesome/free-solid-svg-icons';
-import { filter, map, Subscription } from 'rxjs';
+import { filter, Subscription } from 'rxjs';
 import { GlobalsService } from 'src/app/services/globals.service';
 
 @Component({

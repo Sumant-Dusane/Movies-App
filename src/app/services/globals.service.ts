@@ -9,7 +9,7 @@ export class GlobalsService {
   watchLater: any;
   favourites: any;
   isSideBarOpen = new EventEmitter<boolean>();
-  isNavbarOpen: boolean = true;
+  isNavbarOpen = new EventEmitter<boolean>();
 
   constructor() {
     this.watchLater = localStorage.getItem('watchLater');
@@ -24,6 +24,10 @@ export class GlobalsService {
 
   updateSideBarVisibility(isVisible: boolean) {
     this.isSideBarOpen.emit(isVisible);
+  }
+
+  updateNavBarVisibility(isVisible: boolean) {
+    this.isNavbarOpen.emit(isVisible);
   }
 
   toggleWatchLater(imdbId: string) {

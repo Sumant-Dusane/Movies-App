@@ -13,10 +13,30 @@
           </ng-container>
         </div>
         <p class="desc">{{movieData?.overview}}</p>
+        <h4 *ngIf="movieData?.budget != 0">Budget: {{movieData?.budget}}</h4>
+        <h4 *ngIf="movieData?.revenue != 0">Revenue Generated:  {{movieData?.revenue}}</h4>
       </div>
     </div>
     <div class="movie__trailer">
-      <button class="flex-row gap"><fa-icon [icon]="playIcon"></fa-icon>Play Trailer</button>
+      <button class="flex-row gap" (click)="openModal()"><fa-icon [icon]="playIcon"></fa-icon>Play Trailer</button>
+      <div class="modal" *ngIf='isModalVisible'>
+        <div class="modal-backdrop"></div>
+        <div class="modal-dialog">
+          <div class="modal-header">
+            <h1>Watch {{movieData?.title}}</h1>
+            <button class="close-modal" (click)="closeModal()">&times;</button>
+          </div>
+          <div class="modal-body">
+            <iframe
+              [src]="getYTUrl()"
+              [title]="YTTitle"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
     </div>
   </ng-container>
 
