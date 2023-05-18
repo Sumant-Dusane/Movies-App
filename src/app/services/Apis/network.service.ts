@@ -10,9 +10,7 @@ export class NetworkService {
   apiKey = '507af3f601c7cc39022ad9ceb9dcbb4a';
   endpoint = 'https://api.themoviedb.org/3/';
 
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient) {  }
 
   getDatafromSearch(searchParam: string | null) {
     let url = this.endpoint + 'search/movie?query=' + searchParam  +  '&api_key=' + this.apiKey;

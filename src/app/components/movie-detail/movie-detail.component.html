@@ -4,9 +4,8 @@
     <div class="flex-row gap2x">
       <img class="movie__poster" [src]="baseUrl + movieData?.poster_path" alt={{movieData?.title}}>
       <div class="movie__details flex-column gap">
-        <small class="year">{{movieData.release_date | slice:0:4}}</small>
-        <h1 class="title">{{movieData?.title}}</h1>
-        <span class="info">{{movieData?.release_date}}</span>
+        <h1 class="title">{{movieData?.title}} ({{movieData.release_date | slice:0:4}})</h1>
+        <span class="info">{{movieData?.release_date}} • {{runtime}}</span>
         <div class="info">
           <ng-container *ngFor="let item of movieData?.genres">
             <span class="pill">{{item?.name}}</span>

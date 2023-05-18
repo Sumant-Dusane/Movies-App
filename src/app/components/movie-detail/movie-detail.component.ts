@@ -18,6 +18,7 @@ export class MovieDetailComponent implements OnInit, OnDestroy{
   playIcon = faPlayCircle;
   YTTitle: string;
   movieVideos: any;
+  runtime: any;
   sanitizerInstance: any;
   YTURL: string;
   isModalVisible: boolean = false;
@@ -75,6 +76,8 @@ export class MovieDetailComponent implements OnInit, OnDestroy{
   setData(response: any) {
     this.movieData = response;
     this.isLoading = false;
+    this.runtime = String((this.movieData?.runtime / 60).toFixed(2)).split('.');
+    this.runtime = this.runtime[0] + 'h ' + this.runtime[1] + 'mins';
   }
 
   ngOnDestroy(): void {
