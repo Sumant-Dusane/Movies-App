@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import Movie from 'src/app/state/app.state';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ export class NetworkService {
 
   getDatafromSearch(searchParam: string | null) {
     let url = this.endpoint + 'search/movie?query=' + searchParam  +  '&api_key=' + this.apiKey;
-    return this.http.get(url);
+    return this.http.get<Movie>(url);
   }
 
   getDataMedia(id: string) {
@@ -24,11 +25,11 @@ export class NetworkService {
 
   getTrendingMovies() {
     let url = this.endpoint + 'movie/popular?api_key=' + this.apiKey;
-    return this.http.get(url);
+    return this.http.get<Movie>(url);
   }
 
   getDatafromID(id: string) {
     let url = this.endpoint + 'movie/' + id + '?api_key=' + this.apiKey;
-    return this.http.get(url);
+    return this.http.get<any>(url);
   }
 }

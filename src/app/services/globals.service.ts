@@ -1,5 +1,6 @@
+import { Location } from '@angular/common';
 import { EventEmitter, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class GlobalsService {
   isSideBarOpen = new EventEmitter<boolean>();
   isNavbarOpen = new EventEmitter<boolean>();
 
-  constructor() {
+  constructor(private location: Location, private router: Router) {
     this.watchLater = localStorage.getItem('watchLater');
     this.favourites = localStorage.getItem('favourites');
   }
@@ -28,6 +29,10 @@ export class GlobalsService {
 
   updateNavBarVisibility(isVisible: boolean) {
     this.isNavbarOpen.emit(isVisible);
+  }
+
+  goBack() {
+    this.location.back();
   }
 
   toggleWatchLater(imdbId: string) {

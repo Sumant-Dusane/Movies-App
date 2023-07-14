@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -14,6 +14,11 @@ import { WatchLaterComponent } from './components/watch-later/watch-later.compon
 import { WatchLaterCardComponent } from './components/watch-later-card/watch-later-card.component';
 import { NullStateComponent } from './components/null-state/null-state.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { appReducer } from './state/app.reducer';
+import { AppEffect } from './state/app.effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
 @NgModule({
@@ -32,9 +37,13 @@ import { MovieDetailComponent } from './components/movie-detail/movie-detail.com
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    // EffectsModule.forRoot([]),
+    StoreModule.forRoot({}, {}),
+    StoreModule.forFeature('app-state', appReducer),
+    EffectsModule.forRoot([AppEffect]),
     HttpClientModule,
     FontAwesomeModule,
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

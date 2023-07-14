@@ -6,8 +6,7 @@
 
   <div class="search-bar flex-row-all-center">
     <fa-icon [icon]="searchIcon"></fa-icon>
-    <input type="text" class="search-bar--input" placeholder="Search for Movies" [(ngModel)]="movieName">
-    <a routerLink="/search/{{movieName}}" (click)="movieName = ''" type="submit">Enter</a>
+    <input type="text" class="search-bar--input" placeholder="Search for Movies" [(ngModel)]="movieName"  (keyup.enter)="searchMovie(movieName)">
   </div>
 
   <div class="credits flex-column">
@@ -16,5 +15,4 @@
       <img src="../../../assets/images/sumant.jpeg" alt="Sumant Dusane">
     </a>
   </div>
-
 </nav>

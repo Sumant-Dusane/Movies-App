@@ -1,7 +1,9 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { faClock, faStar, faMap } from '@fortawesome/free-solid-svg-icons';
+import { Store } from '@ngrx/store';
 import { NetworkService } from 'src/app/services/Apis/network.service';
 import { GlobalsService } from 'src/app/services/globals.service';
+import { fetchMovieFromID } from 'src/app/state/app.action';
 
 @Component({
   selector: 'app-movie-card',
@@ -18,7 +20,7 @@ export class MovieCardComponent  implements OnInit {
   isAddedToFavourites: boolean = false;
   imageBaseUrl = this.networkService.baseUrl;
 
-  constructor(private globalService: GlobalsService, private networkService: NetworkService) {}
+  constructor(private globalService: GlobalsService, private networkService: NetworkService, private store: Store) {}
 
   ngOnInit(): void {
     this.ratingState();
@@ -32,10 +34,11 @@ export class MovieCardComponent  implements OnInit {
 
 
   toggleWatchLater(imdbId: string) {
-    this.isAddedToWatchLater=true;
     if(!this.isAddedToWatchLater) {
       this.globalService.toggleWatchLater(imdbId);
+      this.isAddedToWatchLater=true;
     }
+    this.store.dispatch(fetchMovieFromID({movieId: imdbId}));
   }
 
   toggleFavourites(imdbId: string) {

@@ -1,6 +1,9 @@
 <div class="movie">
-  <div class="backdrop" [ngStyle]="{'background': 'url(' + baseUrl + movieData?.backdrop_path + ')'}"></div>
+  <button class="back-btn" (click)="goBack()">
+    <fa-icon [icon]="backIcon" size="2x"></fa-icon>
+  </button>
   <ng-container *ngIf="!isLoading">
+    <div class="backdrop" [ngStyle]="{'background': 'url(' + backdropPath + ')'}"></div>
     <div class="flex-row gap2x">
       <img class="movie__poster" [src]="baseUrl + movieData?.poster_path" alt={{movieData?.title}}>
       <div class="movie__details flex-column gap">
@@ -17,7 +20,8 @@
       </div>
     </div>
     <div class="movie__trailer">
-      <button class="flex-row gap" (click)="openModal()"><fa-icon [icon]="playIcon"></fa-icon>Play Trailer</button>
+      <button class="flex-row gap" *ngIf="hasTrailer" (click)="openModal()"><fa-icon [icon]="playIcon"></fa-icon>Play Trailer</button>
+      <a *ngIf="movieData?.homepage" [href]="movieData?.homepage" target="_blank">Checkout Official Website</a>
       <div class="modal" *ngIf='isModalVisible'>
         <div class="modal-backdrop"></div>
         <div class="modal-dialog">
@@ -41,6 +45,11 @@
 
 
   <ng-container *ngIf="isLoading">
-    please wait...
+    <div class="loader">
+      <video loop autoplay>
+        <source src="../../../assets/images/spinner.webm" type="video/webm">
+      </video>
+      <h4>Please Wait Loading</h4>
+    </div>
   </ng-container>
 </div>

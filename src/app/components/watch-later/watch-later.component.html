@@ -8,5 +8,12 @@
   <ng-container *ngIf="!isLoading && isEmpty">
     <app-null-state class="mt-2" [source]="'Watch Later'" [statusCode]="500"></app-null-state>
   </ng-container>
-  <ng-container *ngIf="isLoading">please wait....</ng-container>
+  <ng-container *ngIf="isLoading">
+    <div class="loader">
+      <video loop autoplay>
+        <source src="../.././../assets/images/spinner.webm" type="video/webm">
+      </video>
+      <h4>Please Wait Loading</h4>
+    </div>
+  </ng-container>
 </div>
