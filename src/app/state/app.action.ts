@@ -78,7 +78,7 @@ export const fetchFilteredMovies = createAction(
 
 export const fetchFilteredMoviesSuccess = createAction(
   '[Filtered Movies] Response Success for Fetching Filtered Movies',
-  props<{filteredMovies: Movie}>()
+  props<{filteredMovies: Movie, filter: string}>()
 );
 
 export const fetchFilteredMoviesFailure = createAction(

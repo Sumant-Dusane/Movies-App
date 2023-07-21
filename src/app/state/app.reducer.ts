@@ -10,7 +10,7 @@ interface AppState{
   trendingMovies: Movie,
   searchedMovies: Movie,
   movieDetails: any,
-  filteredMovies: Movie,
+  filteredMovies: any,
   error: string
 }
 
@@ -36,7 +36,8 @@ const initialState: AppState = {
     page: 0,
     result: [],
     total_pages: 0,
-    total_results: 0
+    total_results: 0,
+    filter: ''
   },
   movieDetails: [],
   error: ''
@@ -131,7 +132,7 @@ export const appReducer = createReducer(
   on(appAction.fetchFilteredMoviesSuccess, (state, action): AppState => {
     return {
       ...state,
-      filteredMovies: action.filteredMovies
+      filteredMovies: {...action.filteredMovies, 'filter': action.filter},
     }
   })
 )
