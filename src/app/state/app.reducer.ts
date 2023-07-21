@@ -10,6 +10,7 @@ interface AppState{
   trendingMovies: Movie,
   searchedMovies: Movie,
   movieDetails: any,
+  filteredMovies: Movie,
   error: string
 }
 
@@ -26,6 +27,12 @@ const initialState: AppState = {
     total_results: 0
   },
   searchedMovies: {
+    page: 0,
+    result: [],
+    total_pages: 0,
+    total_results: 0
+  },
+  filteredMovies: {
     page: 0,
     result: [],
     total_pages: 0,
@@ -55,6 +62,11 @@ export const searchedMovieSelector = createSelector(
 export const movieDetailedSelector = createSelector(
   appFeatureSelector,
   (state) => state?.movieDetails
+);
+
+export const filteredMovieSelector = createSelector(
+  appFeatureSelector,
+  (state) => state?.filteredMovies
 );
 
 export const appReducer = createReducer(
@@ -114,6 +126,12 @@ export const appReducer = createReducer(
     return {
       ...state,
       error: action.error
+    }
+  }),
+  on(appAction.fetchFilteredMoviesSuccess, (state, action): AppState => {
+    return {
+      ...state,
+      filteredMovies: action.filteredMovies
     }
   })
 )

@@ -10,9 +10,10 @@ const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'search/:title', component: HomeComponent},
   {path: 'home', component: HomeComponent},
+  {path: 'advanced', component: HomeComponent},
   {path: 'movie/:id', component: MovieDetailComponent},
   {path: 'watch-later', component: WatchLaterComponent},
-  {path: 'empty', component: NullStateComponent},
+  {path: '404-not-found', component: NullStateComponent},
 ];
 
 @NgModule({

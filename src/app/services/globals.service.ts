@@ -1,6 +1,5 @@
 import { Location } from '@angular/common';
-import { EventEmitter, Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { EventEmitter, Injectable } from '@angular/core';;
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +11,7 @@ export class GlobalsService {
   isSideBarOpen = new EventEmitter<boolean>();
   isNavbarOpen = new EventEmitter<boolean>();
 
-  constructor(private location: Location, private router: Router) {
+  constructor(private location: Location) {
     this.watchLater = localStorage.getItem('watchLater');
     this.favourites = localStorage.getItem('favourites');
   }

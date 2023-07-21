@@ -1,0 +1,45 @@
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 24px;
+}
+
+.switch input {
+  @include element-position(absolute, 0, 0, 0, 0);
+  cursor: pointer;
+  opacity: 0;
+  z-index: $z-index-s;
+}
+
+.slider {
+  cursor: pointer;
+  @include element-position(absolute, 0, 0, 0, 0);
+  background-color: $lightGray;
+  -webkit-transition: $transition-in-out;
+  transition: $transition-in-out;
+}
+
+.slider:before {
+  @include sudo-fill(absolute, unset, unset, 4px, 4px);
+  content: "\1F51E";
+  height: 16px;
+  width: 16px;
+  font-size: $font-size-base;
+  -webkit-transition: $transition-in-out;
+  transition: $transition-in-out;
+}
+
+input:checked + .slider {
+  background-color: $pink;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px $pink;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+}

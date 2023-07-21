@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -41,6 +41,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     StoreModule.forFeature('app-state', appReducer),
     EffectsModule.forRoot([AppEffect]),
     HttpClientModule,
+    ReactiveFormsModule,
     FontAwesomeModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     FormsModule,

@@ -32,4 +32,9 @@ export class NetworkService {
     let url = this.endpoint + 'movie/' + id + '?api_key=' + this.apiKey;
     return this.http.get<any>(url);
   }
+
+  getDataFromFilters(filters: string) {
+    let url = this.endpoint + 'discover/movie?&api_key=' + this.apiKey + filters;
+    return this.http.get<Movie>(url);
+  }
 }

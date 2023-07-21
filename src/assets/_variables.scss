@@ -48,6 +48,7 @@ $font-weight900: 900;
 
 
 // border radius
+$border-radius-small: 4px;
 $border-radius-normal: 8px;
 $border-radius-medium: 16px;
 
@@ -64,6 +65,7 @@ $z-index-xl: 1000000;
 $z-index-super: 99999999;
 
 // transitions
+$transition-long: 500ms all ease-in-out;
 $transition-in-out: 300ms all ease-in-out;
 $transition-in: 300ms all ease-in;
 $transition-out: 300ms all ease-out;

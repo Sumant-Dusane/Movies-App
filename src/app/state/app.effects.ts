@@ -53,4 +53,15 @@ export class AppEffect {
       )),
     );
   });
+  getFilteredMovies = createEffect(() => {
+    return this.action$.pipe(
+      ofType(appAction.fetchFilteredMovies),
+      mergeMap(({filter}) => this.networkService.getDataFromFilters(filter).pipe(
+        map(
+          (filteredMovies) => appAction.fetchFilteredMoviesSuccess({filteredMovies}),
+          catchError((error) => of(appAction.fetchFilteredMoviesFailure({error})))
+        )
+      )),
+    );
+  });
 }

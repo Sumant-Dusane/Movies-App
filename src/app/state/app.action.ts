@@ -70,3 +70,18 @@ export const fetchMovieFromID = createAction(
   props<{movieId: string}>()
 );
 
+
+export const fetchFilteredMovies = createAction(
+  '[Filtered Movies] Send Request to Fetch Filtered Movies',
+  props<{filter: string}>()
+);
+
+export const fetchFilteredMoviesSuccess = createAction(
+  '[Filtered Movies] Response Success for Fetching Filtered Movies',
+  props<{filteredMovies: Movie}>()
+);
+
+export const fetchFilteredMoviesFailure = createAction(
+  '[Filtered Movies] Response Failure for Fetching Filtered Movies',
+  props<{error: string}>()
+);

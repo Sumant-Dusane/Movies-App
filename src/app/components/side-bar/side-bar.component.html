@@ -15,4 +15,41 @@
       Favourites
     </li>
   </ul>
+
+  <form class="filters" [formGroup]="selectedFilters" (ngSubmit)="modifyFilters()" novalidate [ngClass]="{'expanded': filterExpanded}">
+    <button *ngIf="filterExpanded" title="Minimise Filter Window" class="minimize" (click)="filterExpanded = false"><fa-icon [icon]="iconMinimize"></fa-icon></button>
+    <button type="button" class="h3" [ngStyle]="{'background-color' : filterExpanded ? '#1d2025' : '#121417'}" (click)="filterExpanded = true">
+      <h3>Filters <fa-icon [icon]="iconFilter"></fa-icon> <sup><button [disabled]="!filterExpanded" (click)="resetFilters()">Reset Filter</button></sup></h3>
+    </button>
+    <h4>Search By Genres <sup><button>clear</button></sup></h4>
+    <div class="expandable">
+      <label *ngFor="let item of genres" class="clamp-1">
+        <input type="checkbox" [value]="item.id" (change)="onCheckBoxChange($event)" [checked]="checkBoxStatus(item.id)">
+        {{item.name}}
+      </label>
+    </div>
+    <h4>Search By Dates <sup><button>clear</button></sup></h4>
+    <div class="expandable">
+      <label>
+        Release Minimum Date
+      </label>
+      <input type="date" formControlName="release_date_lte">
+      <label>
+        Release Maximum Date
+      </label>
+      <input type="date" formControlName="release_date_gte">
+      <label>
+        Enter the Release Year
+      </label>
+      <input type="text" placeholder="Enter the Year" formControlName="year">
+    </div>
+    <div class="adult-check">
+      <span>Adult Content</span>
+      <label for="adult" class="switch">
+        <input type="checkbox" [value]="'adult'" formControlName="include_adult">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <input class="input-btn btn-primary mt-2" type="submit" value="Modify">
+  </form>
 </div>

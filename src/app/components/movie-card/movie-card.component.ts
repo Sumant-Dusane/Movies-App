@@ -24,12 +24,12 @@ export class MovieCardComponent  implements OnInit {
 
   ngOnInit(): void {
     this.ratingState();
-    if (this.globalService.watchLater.includes(this.bundle?.id)) {
-      this.isAddedToWatchLater = true;
-    }
-    if (this.globalService.favourites.includes(this.bundle?.id)) {
-      this.isAddedToFavourites = true;
-    }
+    // if (this.globalService.watchLater.includes(this.bundle?.id)) {
+    //   this.isAddedToWatchLater = true;
+    // }
+    // if (this.globalService.favourites.includes(this.bundle?.id)) {
+    //   this.isAddedToFavourites = true;
+    // }
   }
 
 

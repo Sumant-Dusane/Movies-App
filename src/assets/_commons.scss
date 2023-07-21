@@ -14,6 +14,12 @@
     background-color: lighten($color: $pink, $amount: 8);
     transition: $transition-in-out;
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    background-color: darken($pink, 10);
+  }
 }
 
 .movies__tiles {
@@ -82,6 +88,7 @@
 }
 
 .container {
+  position: relative;
   margin-left: 16%;
   margin-top: 80px;
   padding: $gutter $gutter2x;

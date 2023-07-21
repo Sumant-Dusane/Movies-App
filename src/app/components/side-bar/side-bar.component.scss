@@ -8,6 +8,7 @@
   padding-top: 80px;
   background-color: darken($color: $dark, $amount: 5);
   z-index: $z-index-l;
+  overflow-y: auto;
   transition: all 400ms linear;
 
   &.collapsed {
@@ -30,12 +31,109 @@
         background-color: $dark;
         transition: $transition-out;
 
-        // &::before {
-        //   @include sudo-fill(absolute, unset, $gutter, 30%, unset);
-        //   font-size: $font-size-m;
-        //   color: $lightGrayVariant;
-        //   // content: '\0279E';
-        // }
       }
+  }
+}
+
+.filters {
+  position: relative;
+  max-height: 70px;
+  overflow-y: auto;
+  transition: $transition-long;
+
+  sup button{
+    color: $lightGray;
+    opacity: 0.8;
+    margin-left: $gutter1_2;
+
+    &:hover {
+      color: lighten($color: $lightGray, $amount: 50)
+    }
+  }
+
+  .minimize {
+    @include element-position(absolute, 0px, 0px, unset, unset);
+    color: $white;
+    font-size: $font-size-xxs;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    background: $white;
+    padding: $gutter1_2 $gutter1_4;
+    border-radius: $border-radius-small;
+    color: $brown;
+    font-family: $font-family-content;
+    font-weight: $font-weight600;
+    margin: $gutter1_2 0;
+  }
+
+  .h3, h4  {
+    color: $white;
+    width: 100%;
+    padding: $gutter;
+
+    &:not(first-child) {
+      margin-top: $gutter;
+    }
+  }
+
+  .btn-primary {
+    display: block;
+    margin: $gutter auto;
+    text-align: center;
+  }
+
+  input.input-btn {
+    cursor: pointer;
+    background-color: $pink;
+    padding: $gutter1_2 $gutter;
+
+    &:hover {
+      background-color: lighten($color: $pink, $amount: 8);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: darken($pink, 10);
+    }
+  }
+
+  .adult-check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $gutter;
+    margin: $gutter2x 0;
+
+    span {
+      font-size: $font-size-sm;
+      font-weight: $font-weight600;
+    }
+  }
+
+  .expandable {
+    position: relative;
+    display: block;
+    max-height: 250px;
+    overflow-y: auto;
+    padding: $gutter1_2;
+    background-color: $darkVariant;
+
+    label {
+      cursor: pointer;
+      display: block;
+      width: 100%;
+      white-space: nowrap;
+
+      &:not(first-child) {
+        margin-top: $gutter1_2;
+      }
+    }
+  }
+
+  &.expanded {
+    max-height: 1500px;
+    transition: $transition-long;
   }
 }

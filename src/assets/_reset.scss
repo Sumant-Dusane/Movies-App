@@ -41,6 +41,22 @@ input {
   outline: 0;
 }
 
+input[type="date"] {
+  cursor: pointer;
+  width: 100%;
+  background: $white;
+  padding: $gutter1_2 $gutter1_4;
+  border-radius: $border-radius-small;
+  color: $brown;
+  font-family: $font-family-content;
+  font-weight: $font-weight600;
+  margin: $gutter1_2 0;
+}
+
+input[type="checkbox"] {
+  accent-color: $pink;
+}
+
 button, a {
   cursor: pointer;
 }
