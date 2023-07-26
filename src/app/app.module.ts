@@ -19,6 +19,7 @@ import { StoreModule } from '@ngrx/store';
 import { appReducer } from './state/app.reducer';
 import { AppEffect } from './state/app.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { PaginatorComponent } from './components/paginator/paginator.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     WatchLaterComponent,
     WatchLaterCardComponent,
     NullStateComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    PaginatorComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     StoreModule.forRoot({}, {}),
     StoreModule.forFeature('app-state', appReducer),
     EffectsModule.forRoot([AppEffect]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    StoreDevtoolsModule.instrument(),
   ],
   providers: [],
   bootstrap: [AppComponent]

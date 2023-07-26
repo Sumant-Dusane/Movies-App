@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./null-state.component.scss']
 })
 export class NullStateComponent {
-  @Input() statusCode: number;
+  @Input() statusCode: number = 404;
   @Input() source: string;
 }

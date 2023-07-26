@@ -18,7 +18,7 @@ export class AppEffect {
         this.store.pipe(select(globalStateSelector))
       ),
       filter(([action, trendingMovies, globalState]) => trendingMovies?.total_results == 0 || trendingMovies?.page != globalState?.pageNumber),
-      mergeMap(() => this.networkService.getTrendingMovies().pipe(
+      mergeMap(([{pageNumber}]) => this.networkService.getTrendingMovies(pageNumber).pipe(
         map(
           (trendingMovies) => appAction.fetchTrendingMoviesSuccess({trendingMovies}),
           catchError((error) => of(appAction.fetchTrendingMoviesFailure({error})))
@@ -34,7 +34,7 @@ export class AppEffect {
         this.store.pipe(select(globalStateSelector))
       ),
       filter(([action, searchedMovies, globalState]) => searchedMovies?.total_results == 0 || searchedMovies?.page != globalState?.pageNumber),
-      mergeMap(([{movieName}]) => this.networkService.getDatafromSearch(movieName).pipe(
+      mergeMap(([{movieName, pageNumber}]) => this.networkService.getDatafromSearch(movieName, pageNumber).pipe(
         map(
           (searchedMovies) => appAction.fetchSearchedMoviesSuccess({searchedMovies}),
           catchError((error) => of(appAction.fetchSearchedMoviesFailure({error})))
@@ -72,7 +72,7 @@ export class AppEffect {
         this.store.pipe(select(globalStateSelector))
       ),
       filter(([action, filteredMovies, globalState]) => filteredMovies?.total_results == 0 || filteredMovies?.page != globalState?.pageNumber || filteredMovies?.filter != filter),
-      mergeMap(([{filter}]) => this.networkService.getDataFromFilters(filter).pipe(
+      mergeMap(([{filter, pageNumber}]) => this.networkService.getDataFromFilters(filter, pageNumber).pipe(
         map(
           (filteredMovies) => appAction.fetchFilteredMoviesSuccess({filteredMovies, filter}),
           catchError((error) => of(appAction.fetchFilteredMoviesFailure({error})))

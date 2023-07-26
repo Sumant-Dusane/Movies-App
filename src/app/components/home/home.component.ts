@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Store, select } from '@ngrx/store';
-import { filter } from 'rxjs';
-import { NetworkService } from 'src/app/services/Apis/network.service';
+import { Store } from '@ngrx/store';
 import { changeGlobalState, fetchFilteredMovies, fetchSearchedMovies, fetchTrendingMovies } from 'src/app/state/app.action';
 import { filteredMovieSelector, globalStateSelector, searchedMovieSelector, trendingMoviesSelector } from 'src/app/state/app.reducer';
 
@@ -15,8 +13,9 @@ export class HomeComponent{
   isSkeleton: boolean = true;
   searchData: any;
   currentState: any;
+  maxPages: number;
 
-  constructor(private route: ActivatedRoute,private networkService: NetworkService, private store: Store) {
+  constructor(private route: ActivatedRoute, private store: Store) {
     let queryParams = '';
     let urlParams = '';
     this.route.queryParams.subscribe(qparams => {
@@ -34,6 +33,9 @@ export class HomeComponent{
     if(!urlParams && !queryParams) {
       this.handleStates('', '');
     }
+    this.store.select(globalStateSelector).subscribe(state => {
+      this.currentState = state;
+    });
   }
 
   handleStates(urlParams: any, queryParams: any) {
@@ -46,9 +48,6 @@ export class HomeComponent{
     }
     this.isSkeleton = true;
     setTimeout(() => {
-      this.store.select(globalStateSelector).subscribe(state => {
-        this.currentState = state;
-       });
        if(this.currentState?.currentState == 'explore') {
          this.getTrendingMovies();
        }
@@ -62,7 +61,7 @@ export class HomeComponent{
   }
 
   getDataFromSearch(searchParam: string) {
-    this.store.dispatch(fetchSearchedMovies({movieName: searchParam}));
+    this.store.dispatch(fetchSearchedMovies({movieName: searchParam, pageNumber: 1}));
     return this.store.select(searchedMovieSelector).subscribe(searchedMovies => {
       let response = searchedMovies;
       this.setData(response);
@@ -70,7 +69,7 @@ export class HomeComponent{
   }
 
   getDataFromFilter(filter: string) {
-    this.store.dispatch(fetchFilteredMovies({filter: filter}));
+    this.store.dispatch(fetchFilteredMovies({filter: filter, pageNumber: 1}));
     return this.store.select(filteredMovieSelector).subscribe(filteredMovies => {
       let response = filteredMovies;
       this.setData(response);
@@ -78,15 +77,16 @@ export class HomeComponent{
   }
 
   getTrendingMovies() {
-    this.store.dispatch(fetchTrendingMovies());
+    this.store.dispatch(fetchTrendingMovies({pageNumber: 1}));
     return this.store.select(trendingMoviesSelector).subscribe(trendingMovies => {
       let response = trendingMovies;
       this.setData(response)
     });
   }
 
-  setData(reponse: any) {
-    this.searchData = reponse?.results;
+  setData(response: any) {
+    this.maxPages = response?.total_pages;
+    this.searchData = response?.results;
     this.isSkeleton = false;
   }
 

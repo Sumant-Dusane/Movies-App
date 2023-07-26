@@ -14,6 +14,7 @@ const routes: Routes = [
   {path: 'movie/:id', component: MovieDetailComponent},
   {path: 'watch-later', component: WatchLaterComponent},
   {path: '404-not-found', component: NullStateComponent},
+  {path: '**', redirectTo: '/404-not-found', pathMatch: 'full'},
 ];
 
 @NgModule({

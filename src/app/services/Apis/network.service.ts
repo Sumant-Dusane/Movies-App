@@ -13,8 +13,8 @@ export class NetworkService {
 
   constructor(private http: HttpClient) {  }
 
-  getDatafromSearch(searchParam: string | null) {
-    let url = this.endpoint + 'search/movie?query=' + searchParam  +  '&api_key=' + this.apiKey;
+  getDatafromSearch(searchParam: string | null, pageNumber: number = 1) {
+    let url = this.endpoint + 'search/movie?query=' + searchParam + '&page=' + pageNumber  +  '&api_key=' + this.apiKey;
     return this.http.get<Movie>(url);
   }
 
@@ -23,8 +23,8 @@ export class NetworkService {
     return this.http.get(url);
   }
 
-  getTrendingMovies() {
-    let url = this.endpoint + 'movie/popular?api_key=' + this.apiKey;
+  getTrendingMovies(pageNumber: number) {
+    let url = this.endpoint + 'movie/popular?api_key=' + this.apiKey + '&page=' + pageNumber;
     return this.http.get<Movie>(url);
   }
 
@@ -33,8 +33,8 @@ export class NetworkService {
     return this.http.get<any>(url);
   }
 
-  getDataFromFilters(filters: string) {
-    let url = this.endpoint + 'discover/movie?&api_key=' + this.apiKey + filters;
+  getDataFromFilters(filters: string, pageNumber: number) {
+    let url = this.endpoint + 'discover/movie?&api_key=' + this.apiKey + filters + '&page=' + pageNumber;
     return this.http.get<Movie>(url);
   }
 }

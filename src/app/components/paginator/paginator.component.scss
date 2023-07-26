@@ -1,0 +1,41 @@
+@import "../../../assets/variables";
+
+.paginator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: $gutter2x auto $gutter auto;
+
+  .pager {
+    display: flex;
+    gap: $gutter1_2;
+    margin: 0 $gutter;
+
+    .btn {
+      color: $white;
+      padding: $gutter;
+      border-radius: $border-radius-normal;
+      transition: $transition-in-out;
+
+      &:hover {
+        color: $pink;
+      }
+      &.active {
+        color: $white;
+        background-color: darken($color: $pink, $amount: 20);
+      }
+    }
+  }
+
+  .btn {
+    color: $white;
+  }
+
+  .page-input {
+    color: $dark;
+    background-color: $white;
+    border-radius: $border-radius-normal;
+    padding: $gutter1_2;
+    margin-left: $gutter1_2;
+  }
+}

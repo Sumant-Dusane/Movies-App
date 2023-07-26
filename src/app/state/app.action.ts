@@ -3,6 +3,7 @@ import Movie from "./app.state";
 
 export const fetchTrendingMovies = createAction(
   '[Trending Movies] Send Request to Fetch Movies',
+  props<{pageNumber: number}>()
 );
 
 export const fetchTrendingMoviesSuccess = createAction(
@@ -47,7 +48,7 @@ export const appendMovieDetailedInfoMediaFailure = createAction(
 
 export const fetchSearchedMovies = createAction(
   '[Searched Movies] Send Request for Fetching Searched Movies',
-  props<{movieName: string}>()
+  props<{movieName: string, pageNumber: number}>()
 );
 
 export const fetchSearchedMoviesSuccess = createAction(
@@ -73,7 +74,7 @@ export const fetchMovieFromID = createAction(
 
 export const fetchFilteredMovies = createAction(
   '[Filtered Movies] Send Request to Fetch Filtered Movies',
-  props<{filter: string}>()
+  props<{filter: string, pageNumber: number}>()
 );
 
 export const fetchFilteredMoviesSuccess = createAction(
