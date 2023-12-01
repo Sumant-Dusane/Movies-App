@@ -15,9 +15,7 @@ export class HomeComponent implements OnInit {
   currentState: any;
   maxPages: number;
 
-  constructor(private route: ActivatedRoute, private store: Store) {
-
-  }
+  constructor(private route: ActivatedRoute, private store: Store) { }
 
   ngOnInit() {
     let queryParams = '';

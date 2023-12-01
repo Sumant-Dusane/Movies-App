@@ -1,6 +1,6 @@
 [build]
-  command = "CI='' npm run build"
-  publish = "/build"
+  command = "ng build"
+  publish = "/dist/movies-app"
   base ="/"
 
 [[redirects]]
