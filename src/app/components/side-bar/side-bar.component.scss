@@ -12,7 +12,7 @@
   transition: all 400ms linear;
 
   &.collapsed {
-    left: -250px;
+    left: -100%;
   }
 
   &__content li {

@@ -73,11 +73,16 @@ export const filteredMovieSelector = createSelector(
 export const appReducer = createReducer(
   initialState,
   on(appAction.changeGlobalState, (state, action): AppState => {
+    const prevState = {...state?.globalState};
+    var page = action.pageNumber;
+    if(prevState?.currentState != action?.currentState) {
+      page = 1;
+    }
     return {
       ...state,
       globalState: {
         currentState: action.currentState,
-        pageNumber: action.pageNumber
+        pageNumber: page
       }
     }
   }),

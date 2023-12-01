@@ -1,0 +1,13 @@
+<div class="paginator">
+  <button class="btn" (click)="changePage(1)">First</button>
+  <div class="pager">
+    <button
+      class="btn" *ngFor="let btn of [1,2,3,4,5,500]"
+      [ngClass]="{'active': btn == activePage}"
+      (click)="changePage(btn)">
+      {{btn}}
+    </button>
+  </div>
+  <button class="btn" (click)="changePage(500)">Last</button>
+  <input class="page-input" type="text" name="cur_page" id="cur_page" placeholder="Enter Page Number" [(ngModel)]="activePage" (change)="changePage(activePage)">
+</div>
